@@ -28,10 +28,5 @@ size_t ft_strlcat(char * restrict dst, const char * restrict src, size_t dstsize
 /* TODO */
 char *ft_strdup(const char *s1);
 void ft_reverse(char *s);
-
-/* MATH */
-int	ft_permute_char(char *arr, int n);
-int	ft_permute_int(int *arr, int n);
-unsigned int ft_abs(int i);
 #endif
 

@@ -6,7 +6,7 @@
 /*   By: mbarberi <mbarberi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 14:00:03 by mbarberi          #+#    #+#             */
-/*   Updated: 2022/11/07 14:00:04 by mbarberi         ###   ########.fr       */
+/*   Updated: 2022/11/07 16:59:32 by mbarberi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,7 @@
 ** corresponding file descriptor. If it succeeds it returns a positive
 ** integer, if not it returns EOF.
 */
-
-int ft_putnbr_fd(int fd, int i)
+void	ft_putnbr_fd(int n, int fd)
 {
   char *s;
   unsigned int n;

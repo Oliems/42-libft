@@ -6,7 +6,7 @@
 /*   By: mbarberi <mbarberi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 14:00:26 by mbarberi          #+#    #+#             */
-/*   Updated: 2022/11/07 14:00:27 by mbarberi         ###   ########.fr       */
+/*   Updated: 2022/11/07 16:58:19 by mbarberi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,7 @@
 ** corresponding file descriptor. For example, 0 is the stdin, 1 is
 ** the stdout and 2 is stderr.
 */
-int ft_putchar_fd(int fd, int c)
+void	ft_putchar_fd(char c, int fd)
 {
-  if (write(fd, &c, 1))
-    return (c);
-  else
-    return (EOF);
+	write(fd, &c, 1);
 }

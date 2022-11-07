@@ -6,7 +6,7 @@
 /*   By: mbarberi <mbarberi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 14:01:50 by mbarberi          #+#    #+#             */
-/*   Updated: 2022/11/07 16:08:11 by mbarberi         ###   ########.fr       */
+/*   Updated: 2022/11/07 16:36:02 by mbarberi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 */
 int	ft_tolower(int c)
 {
-	if (ft_isupper(c))
+	if ((c >= 'A' && c <= 'Z'))
 		return (c + 32);
 	else
 		return (c);

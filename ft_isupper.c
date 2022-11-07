@@ -6,12 +6,12 @@
 /*   By: mbarberi <mbarberi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 13:56:28 by mbarberi          #+#    #+#             */
-/*   Updated: 2022/11/07 13:56:30 by mbarberi         ###   ########.fr       */
+/*   Updated: 2022/11/07 16:07:08 by mbarberi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/* The isupper() function tests for any upper-case letters. */
-int ft_isupper(int c)
+/* The isupper(3) function tests for any upper-case letters. */
+int	ft_isupper(int c)
 {
-  return (c >= 'A' && c <= 'Z');
+	return (c >= 'A' && c <= 'Z');
 }

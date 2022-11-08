@@ -6,7 +6,7 @@
 /*   By: mbarberi <mbarberi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 14:01:09 by mbarberi          #+#    #+#             */
-/*   Updated: 2022/11/08 14:09:46 by mbarberi         ###   ########.fr       */
+/*   Updated: 2022/11/08 14:13:40 by mbarberi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,11 @@
 */
 char	*ft_strdup(const char *str)
 {
-  char *s2;
+  char *p;
 
-  s2 = (char *) ft_strlen(str) + 1;
-  if (s2 != NULL)
-    ft_strlcpy(s2, str, sizeof(s2));
-  return (s2);
+  p = malloc(ft_strlen(str) + 1);
+  if (!p)
+  	return (NULL);
+    ft_strlcpy(p, str, sizeof(p));
+  return (p);
 }

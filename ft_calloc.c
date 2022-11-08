@@ -6,7 +6,7 @@
 /*   By: mbarberi <mbarberi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 13:54:06 by mbarberi          #+#    #+#             */
-/*   Updated: 2022/11/08 13:13:08 by mbarberi         ###   ########.fr       */
+/*   Updated: 2022/11/08 13:26:14 by mbarberi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,10 @@ void	*ft_calloc(size_t number, size_t size)
 	if (!p)
 		return (NULL);
 	pp = p;
-	while ((unsigned long)(pp - p) != (number * size))
+	while ((size_t)(pp - p) != (number * size))
 	{
+		*pp = '\0';
 		pp++;
-		*pp = 0;
 	}
 	return ((void *)(p));
 }

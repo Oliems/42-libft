@@ -6,7 +6,7 @@
 /*   By: mbarberi <mbarberi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 14:01:19 by mbarberi          #+#    #+#             */
-/*   Updated: 2022/11/10 11:54:35 by mbarberi         ###   ########.fr       */
+/*   Updated: 2022/11/10 12:35:18 by mbarberi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,19 +20,19 @@
 
 size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 {
+	size_t		size;
 	char		*d;
 	const char	*s;
 
 	d = dst;
 	s = src;
-	dstsize = dstsize - ft_strlen(dst) - 1;
+	size = dstsize - ft_strlen(dst) - 1;
+	if (size > dstsize)
+		return (ft_strlen(dst) + ft_strlen(src));
 	while (*d)
 		d++;
-	while (dstsize > 0 && *s && *d)
-	{
+	while (size-- > 0 && *s)
 		*d++ = *s++;
-		dstsize--;
-	}
 	*d = '\0';
 	return (ft_strlen(dst) + ft_strlen(src));
 }

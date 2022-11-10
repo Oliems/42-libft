@@ -6,7 +6,7 @@
 /*   By: mbarberi <mbarberi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 13:54:02 by mbarberi          #+#    #+#             */
-/*   Updated: 2022/11/08 13:57:51 by mbarberi         ###   ########.fr       */
+/*   Updated: 2022/11/10 12:56:27 by mbarberi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,6 @@ void	ft_bzero(void *b, size_t len)
 	p = b;
 	if (len == 0)
 		return;
-	while ((size_t)(p - b) != len)
-	{
-		*(char *)p = '\0';
-		p++;
-	}
+	while (len--)
+		*(char *)p++ = '\0';
 }

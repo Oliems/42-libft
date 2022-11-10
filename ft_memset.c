@@ -6,7 +6,7 @@
 /*   By: mbarberi <mbarberi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 13:57:20 by mbarberi          #+#    #+#             */
-/*   Updated: 2022/11/10 12:56:36 by mbarberi         ###   ########.fr       */
+/*   Updated: 2022/11/10 13:07:12 by mbarberi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 */
 void	*ft_memset(void *b, int c, size_t len)
 {
-	void *p;
+	void	*p;
 
 	p = b;
 	if (len == 0)

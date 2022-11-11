@@ -11,7 +11,8 @@ CTYPE = ../ft_isalpha.c \
 		../ft_toupper.c \
 		../ft_tolower.c \
 
-STRING = ../ft_strnstr.c
+STRING = ../ft_strnstr.c \
+		../ft_strncmp.c \
 
 ctype: suite.c minunit.h
 	$(CC) $(CFLAGS) $(INCLUDE_DIRS) $(LIBS) $< $(CTYPE) -o $@

@@ -88,9 +88,47 @@ MU_TEST(test_strnstr)
 	mu_assert_string_eq(ori, cpy);
 }
 
+MU_TEST(test_strncmp)
+{
+	int ori;
+	int cpy;
+	char *err = NULL;
+
+	ori = strncmp("Hello", "Hallo", 5);
+	cpy = ft_strncmp("Hello", "Hallo", 5);
+	asprintf(&err, "Expected %d got %d\n", ori, cpy);
+	mu_assert(cpy == ori, err);
+
+	ori = strncmp("Hallo", "Hello", 5);
+	cpy = ft_strncmp("Hallo", "Hello", 5);
+	asprintf(&err, "Expected %d got %d\n", ori, cpy);
+	mu_assert(cpy == ori, err);
+
+	ori = strncmp("Hello", "Hello", 10);
+	cpy = ft_strncmp("Hello", "Hello", 10);
+	asprintf(&err, "Expected %d got %d\n", ori, cpy);
+	mu_assert(cpy == ori, err);
+
+	ori = strncmp("a", "", 5);
+	cpy = ft_strncmp("a", "", 5);
+	asprintf(&err, "Expected %d got %d\n", ori, cpy);
+	mu_assert(cpy == ori, err);
+
+	ori = strncmp("", "a", 0);
+	cpy = ft_strncmp("", "a", 0);
+	asprintf(&err, "Expected %d got %d\n", ori, cpy);
+	mu_assert(cpy == ori, err);
+
+	ori = strncmp("", "", 0);
+	cpy = ft_strncmp("", "", 0);
+	asprintf(&err, "Expected %d got %d\n", ori, cpy);
+	mu_assert(cpy == ori, err);
+}
+
 MU_TEST_SUITE(test_string)
 {
 	MU_RUN_TEST(test_strnstr);
+	MU_RUN_TEST(test_strncmp);
 }
 
 int main(void)

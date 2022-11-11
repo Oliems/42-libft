@@ -1,5 +1,5 @@
 CC = clang
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra
 RM = rm -f
 INCLUDE_DIRS += -I../
 LIBS += -lm
@@ -11,5 +11,10 @@ CTYPE = ../ft_isalpha.c \
 		../ft_toupper.c \
 		../ft_tolower.c \
 
+STRING = ../ft_strnstr.c
+
 ctype: suite.c minunit.h
 	$(CC) $(CFLAGS) $(INCLUDE_DIRS) $(LIBS) $< $(CTYPE) -o $@
+
+string: suite.c minunit.h
+	$(CC) $(CFLAGS) $(INCLUDE_DIRS) $(LIBS) $< $(STRING) -o $@

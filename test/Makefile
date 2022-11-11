@@ -13,6 +13,7 @@ CTYPE = ../ft_isalpha.c \
 
 STRING = ../ft_strnstr.c \
 		../ft_strncmp.c \
+		../ft_memcmp.c \
 
 ctype: suite.c minunit.h
 	$(CC) $(CFLAGS) $(INCLUDE_DIRS) $(LIBS) $< $(CTYPE) -o $@

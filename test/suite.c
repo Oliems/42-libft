@@ -94,18 +94,28 @@ MU_TEST(test_strncmp)
 	int cpy;
 	char *err = NULL;
 
+	ori = strncmp("Hello", "Hello", 10);
+	cpy = ft_strncmp("Hello", "Hello", 10);
+	asprintf(&err, "Expected %d got %d\n", ori, cpy);
+	mu_assert(cpy == ori, err);
+
 	ori = strncmp("Hello", "Hallo", 5);
 	cpy = ft_strncmp("Hello", "Hallo", 5);
 	asprintf(&err, "Expected %d got %d\n", ori, cpy);
 	mu_assert(cpy == ori, err);
 
-	ori = strncmp("Hallo", "Hello", 5);
-	cpy = ft_strncmp("Hallo", "Hello", 5);
+	ori = strncmp("Hello", "Yello", 5);
+	cpy = ft_strncmp("Hello", "Yello", 5);
 	asprintf(&err, "Expected %d got %d\n", ori, cpy);
 	mu_assert(cpy == ori, err);
 
-	ori = strncmp("Hello", "Hello", 10);
-	cpy = ft_strncmp("Hello", "Hello", 10);
+	ori = strncmp("Hello", "Hella", 5);
+	cpy = ft_strncmp("Hello", "Hella", 5);
+	asprintf(&err, "Expected %d got %d\n", ori, cpy);
+	mu_assert(cpy == ori, err);
+
+	ori = strncmp("Hallo", "Hello", 5);
+	cpy = ft_strncmp("Hallo", "Hello", 5);
 	asprintf(&err, "Expected %d got %d\n", ori, cpy);
 	mu_assert(cpy == ori, err);
 
@@ -123,12 +133,69 @@ MU_TEST(test_strncmp)
 	cpy = ft_strncmp("", "", 0);
 	asprintf(&err, "Expected %d got %d\n", ori, cpy);
 	mu_assert(cpy == ori, err);
+
+	free(err);
+}
+
+MU_TEST(test_memcmp)
+{
+	int ori;
+	int cpy;
+	char *err = NULL;
+
+	ori = memcmp("Hello", "Hello", 10);
+	cpy = ft_memcmp("Hello", "Hello", 10);
+	asprintf(&err, "Expected %d got %d\n", ori, cpy);
+	mu_assert(cpy == ori, err);
+
+	ori = memcmp("Hello", "Hallo", 5);
+	cpy = ft_memcmp("Hello", "Hallo", 5);
+	asprintf(&err, "Expected %d got %d\n", ori, cpy);
+	mu_assert(cpy == ori, err);
+
+	ori = memcmp("Hello", "Yello", 5);
+	cpy = ft_memcmp("Hello", "Yello", 5);
+	asprintf(&err, "Expected %d got %d\n", ori, cpy);
+	mu_assert(cpy == ori, err);
+
+	ori = memcmp("Hello", "Hella", 5);
+	cpy = ft_memcmp("Hello", "Hella", 5);
+	asprintf(&err, "Expected %d got %d\n", ori, cpy);
+	mu_assert(cpy == ori, err);
+
+	ori = memcmp("Hallo", "Hello", 5);
+	cpy = ft_memcmp("Hallo", "Hello", 5);
+	asprintf(&err, "Expected %d got %d\n", ori, cpy);
+	mu_assert(cpy == ori, err);
+
+	ori = memcmp("a", "", 5);
+	cpy = ft_memcmp("a", "", 5);
+	asprintf(&err, "Expected %d got %d\n", ori, cpy);
+	mu_assert(cpy == ori, err);
+
+	ori = memcmp("", "a", 0);
+	cpy = ft_memcmp("", "a", 0);
+	asprintf(&err, "Expected %d got %d\n", ori, cpy);
+	mu_assert(cpy == ori, err);
+
+	ori = memcmp("", "", 0);
+	cpy = ft_memcmp("", "", 0);
+	asprintf(&err, "Expected %d got %d\n", ori, cpy);
+	mu_assert(cpy == ori, err);
+
+	ori = memcmp("Long string", "Long", 12);
+	cpy = ft_memcmp("Long string", "Long", 12);
+	asprintf(&err, "Expected %d got %d\n", ori, cpy);
+	mu_assert(cpy == ori, err);
+
+	free(err);
 }
 
 MU_TEST_SUITE(test_string)
 {
 	MU_RUN_TEST(test_strnstr);
 	MU_RUN_TEST(test_strncmp);
+	MU_RUN_TEST(test_memcmp);
 }
 
 int main(void)

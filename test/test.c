@@ -72,3 +72,12 @@ int main(void)
 	char *s = "Hello World!";
 	d = ft_strdup(s);
 }
+
+int main(void)
+{
+	char *h = "Hello World!";
+	char *n = "llo";
+	char *p;
+
+	p = ft_strnstr(h, n, 4);
+}

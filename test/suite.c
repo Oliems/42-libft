@@ -71,6 +71,21 @@ MU_TEST(test_strnstr)
 	ori = strnstr("", "llo", 4);
 	cpy = ft_strnstr("", "llo", 4);
 	mu_assert_string_eq(ori, cpy);
+	ori = strnstr("", "llo", 4);
+	cpy = ft_strnstr("", "llo", 4);
+	mu_assert_string_eq(ori, cpy);
+	ori = strnstr("Hello World!", "Hello World!", 12);
+	cpy = ft_strnstr("Hello World!", "Hello World!", 12);
+	mu_assert_string_eq(ori, cpy);
+	ori = strnstr("Hello World!", "Hello World!", 15);
+	cpy = ft_strnstr("Hello World!", "Hello World!", 15);
+	mu_assert_string_eq(ori, cpy);
+	ori = strnstr("Hello World!", "Hello World!", 5);
+	cpy = ft_strnstr("Hello World!", "Hello World!", 5);
+	mu_assert_string_eq(ori, cpy);
+	ori = strnstr("Hello\nWorld!", "\n", 10);
+	cpy = ft_strnstr("Hello\nWorld!", "\n", 10);
+	mu_assert_string_eq(ori, cpy);
 }
 
 MU_TEST_SUITE(test_string)

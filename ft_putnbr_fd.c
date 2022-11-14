@@ -6,13 +6,11 @@
 /*   By: mbarberi <mbarberi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 14:00:03 by mbarberi          #+#    #+#             */
-/*   Updated: 2022/11/11 17:09:08 by mbarberi         ###   ########.fr       */
+/*   Updated: 2022/11/14 13:08:48 by mbarberi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#define MIN -2147483648
-#define MAX 2147483647
 
 /*
 ** The ft_putnbr_fd() function writes the number n to corresponding file

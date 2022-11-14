@@ -6,13 +6,11 @@
 /*   By: mbarberi <mbarberi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 13:56:32 by mbarberi          #+#    #+#             */
-/*   Updated: 2022/11/11 17:08:15 by mbarberi         ###   ########.fr       */
+/*   Updated: 2022/11/14 13:20:49 by mbarberi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#define MIN -2147483648
-#define MAX 2147483647
 
 /*
 ** Using malloc(3), allocate enough memory to store a string representing `n'
@@ -52,7 +50,7 @@ char	*ft_itoa(int n)
 
 	l = ft_nlen(n);
 	s = malloc(l + 1);
-	s[l + 1] = '\0';
+	s[l] = '\0';
 	if (n < 0)
 		s[0] = '-';
 	else if (n == 0)

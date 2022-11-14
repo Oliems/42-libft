@@ -6,7 +6,7 @@
 /*   By: mbarberi <mbarberi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 13:57:06 by mbarberi          #+#    #+#             */
-/*   Updated: 2022/11/10 15:00:24 by mbarberi         ###   ########.fr       */
+/*   Updated: 2022/11/14 13:24:25 by mbarberi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	*ft_memchr(const void *b, int c, size_t len)
 	p = (unsigned char *)b;
 	while (len--)
 	{
-		if (*p == c)
+		if (*p == (unsigned char)c)
 			return ((void *)p);
 		p++;
 	}

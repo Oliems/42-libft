@@ -6,7 +6,7 @@
 /*   By: mbarberi <mbarberi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 13:53:46 by mbarberi          #+#    #+#             */
-/*   Updated: 2022/11/14 09:59:06 by mbarberi         ###   ########.fr       */
+/*   Updated: 2022/11/14 14:54:49 by mbarberi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,6 @@
 ** The atoi(3) function converts the initial portion of the nptring pointed to
 ** by nptr to integer representation.
 */
-static int	ft_issign(int c)
-{
-	return (c == '-' || c == '+');
-}
-
 static int	ft_isspace(int c)
 {
 	return (c == ' ' || c == '\t' || c == '\n' || c == '\v' || c == '\f'
@@ -38,12 +33,10 @@ int	ft_atoi(const char *nptr)
 	p = nptr;
 	while (ft_isspace(*p))
 		p++;
-	while (ft_issign(*p))
-	{
-		if (*p == '-')
-			sign *= -1;
+	if (*p == '-')
+		sign *= -1;
+	if (*p == '-' || *p == '+')
 		p++;
-	}
 	while (ft_isdigit(*p))
 	{
 		x *= 10;

@@ -6,7 +6,7 @@
 /*   By: mbarberi <mbarberi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 11:28:25 by mbarberi          #+#    #+#             */
-/*   Updated: 2022/11/14 11:35:57 by mbarberi         ###   ########.fr       */
+/*   Updated: 2022/11/14 14:21:17 by mbarberi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	ft_striteri(char *s, void (*f)(unsigned int, char *))
 	p = s;
 	while (*p)
 	{
-		(f)((unsigned int)(p - s), p);
+		f((unsigned int)(p - s), p);
 		p++;
 	}
 }

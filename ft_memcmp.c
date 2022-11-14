@@ -6,7 +6,7 @@
 /*   By: mbarberi <mbarberi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 13:57:10 by mbarberi          #+#    #+#             */
-/*   Updated: 2022/11/11 17:19:36 by mbarberi         ###   ########.fr       */
+/*   Updated: 2022/11/14 14:40:51 by mbarberi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,20 +18,13 @@
 */
 int	ft_memcmp(const void *b1, const void *b2, size_t len)
 {
-	const unsigned char	*p1;
-	const unsigned char	*p2;
+	unsigned char	*p1;
+	unsigned char	*p2;
 
-	p1 = (const unsigned char *)b1;
-	p2 = (const unsigned char *)b2;
+	p1 = (unsigned char *)b1;
+	p2 = (unsigned char *)b2;
 	while (len--)
-	{
 		if (*p1++ != *p2++)
-		{
-			if ((*(p1 - 1) - *(p2 - 1)) > 0)
-				return (1);
-			else
-				return (-1);
-		}
-	}
+			return ((*(p1 - 1) - *(p2 - 1)));
 	return (0);
 }

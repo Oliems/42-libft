@@ -6,7 +6,7 @@
 /*   By: mbarberi <mbarberi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 14:01:46 by mbarberi          #+#    #+#             */
-/*   Updated: 2022/11/14 15:20:35 by mbarberi         ###   ########.fr       */
+/*   Updated: 2022/11/14 18:31:20 by mbarberi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,18 +19,23 @@
 */
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	size_t i;
+	size_t	i;
 	char	*p;
 
-	i = start;
-	if (start > ft_strlen(s))
+	if (!s)
 		return (NULL);
-	p = malloc(len - start);
+	i = ft_strlen(s);
+	if (len > i)
+		len = i;
+	if (start > i)
+		len = 0;
+	p = malloc(len + 1);
 	if (!p)
 		return (NULL);
+	i = 0;
 	while (i < len)
 	{
-		p[i] = s[i];
+		p[i] = s[start + i];
 		i++;
 	}
 	p[i] = '\0';

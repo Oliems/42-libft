@@ -6,7 +6,7 @@
 /*   By: mbarberi <mbarberi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 14:00:03 by mbarberi          #+#    #+#             */
-/*   Updated: 2022/11/14 13:08:48 by mbarberi         ###   ########.fr       */
+/*   Updated: 2022/11/14 18:19:21 by mbarberi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,22 @@
 ** The ft_putnbr_fd() function writes the number n to corresponding file
 ** descriptor.
 */
+static size_t	ft_abs(int n)
+{
+	if (n < 0)
+		return (-((size_t)(n)));
+	else
+		return (+((size_t)(n)));
+}
+
 void	ft_putnbr_fd(int n, int fd)
 {
-	char	*s;
+	size_t	nbr;
 
-	s = ft_itoa(n);
-	ft_putstr_fd(s, fd);
-	free(s);
+	nbr = ft_abs(n);
+	if (n < 0)
+		ft_putchar_fd('-', fd);
+	if (nbr > 9)
+		ft_putnbr_fd(nbr / 10, fd);
+	ft_putchar_fd(nbr % 10 + '0', fd);
 }

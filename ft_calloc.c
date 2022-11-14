@@ -6,7 +6,7 @@
 /*   By: mbarberi <mbarberi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 13:54:06 by mbarberi          #+#    #+#             */
-/*   Updated: 2022/11/08 13:26:14 by mbarberi         ###   ########.fr       */
+/*   Updated: 2022/11/14 10:17:48 by mbarberi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,17 +20,11 @@
 */
 void	*ft_calloc(size_t number, size_t size)
 {
-	size_t	*p;
-	size_t	*pp;
+	void	*p;
 
 	p = malloc(number * size);
 	if (!p)
 		return (NULL);
-	pp = p;
-	while ((size_t)(pp - p) != (number * size))
-	{
-		*pp = '\0';
-		pp++;
-	}
-	return ((void *)(p));
+	ft_bzero(p, number * size);
+	return (p);
 }

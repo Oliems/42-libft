@@ -6,7 +6,7 @@
 /*   By: mbarberi <mbarberi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 15:46:31 by mbarberi          #+#    #+#             */
-/*   Updated: 2022/11/10 13:51:48 by mbarberi         ###   ########.fr       */
+/*   Updated: 2022/11/14 19:03:16 by mbarberi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,4 +57,22 @@ char	*ft_strtrim(char const *s1, char const *set);
 char	**ft_split(char const *s, char c);
 char	*ft_itoa(int n);
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
+
+/* BONUS */
+typedef struct s_list	t_list;
+struct		s_list
+{
+	void	*content;
+	t_list	*next;
+};
+
+t_list		*ft_lstnew(void *content);
+void		ft_lstadd_front(t_list **lst, t_list *new);
+int			ft_lstsize(t_list *lst);
+t_list		*ft_lstlast(t_list *lst);
+void		ft_lstadd_back(t_list **lst, t_list *new);
+void		ft_lstdelone(t_list *lst, void (*del)(void*));
+void		ft_lstclear(t_list **lst, void (*del)(void*));
+void		ft_lstiter(t_list *lst, void (*f)(void *));
+t_list		*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 #endif

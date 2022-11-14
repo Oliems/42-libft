@@ -6,7 +6,7 @@
 /*   By: mbarberi <mbarberi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 14:01:19 by mbarberi          #+#    #+#             */
-/*   Updated: 2022/11/10 12:35:18 by mbarberi         ###   ########.fr       */
+/*   Updated: 2022/11/14 10:29:26 by mbarberi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@
 ** of dst.  It will append at most size - strlen(dst) - 1 bytes,
 ** NUL-terminating the result.
 */
-
 size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 {
 	size_t		size;

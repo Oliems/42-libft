@@ -6,7 +6,7 @@
 /*   By: mbarberi <mbarberi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 13:53:46 by mbarberi          #+#    #+#             */
-/*   Updated: 2022/11/08 12:54:33 by mbarberi         ###   ########.fr       */
+/*   Updated: 2022/11/14 09:59:06 by mbarberi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 ** The atoi(3) function converts the initial portion of the nptring pointed to
 ** by nptr to integer representation.
 */
-
 static int	ft_issign(int c)
 {
 	return (c == '-' || c == '+');

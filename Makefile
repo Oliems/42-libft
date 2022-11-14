@@ -30,7 +30,7 @@ SRCS =	ft_atoi.c \
 		ft_split.c \
 		ft_strlcat.c \
 		ft_strncmp.c \
-		ft_striteri \
+		ft_striteri.c \
 		ft_substr.c
 
 OBJS = ${SRCS:.c=.o}

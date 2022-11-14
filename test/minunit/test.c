@@ -81,3 +81,20 @@ int main(void)
 
 	p = ft_strnstr(h, n, 4);
 }
+
+int main(void)
+{
+	char *s1 = "Hello ";
+	char *s2 = "World!";
+	char *p;
+	p = ft_strjoin(s1, s2);
+}
+
+int main(void)
+{
+	char *s = "test-hello-world.c";
+	char *set = "test-.c";
+	char *res;
+
+	res = ft_strtrim(s, set);
+}

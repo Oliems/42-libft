@@ -6,7 +6,7 @@
 /*   By: mbarberi <mbarberi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 14:00:58 by mbarberi          #+#    #+#             */
-/*   Updated: 2022/11/14 12:29:44 by mbarberi         ###   ########.fr       */
+/*   Updated: 2022/11/15 18:35:14 by mbarberi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,62 @@
 ** obtenu en séparant ’s’ à l’aide du caractère ’c’, utilisé comme délimiteur.
 ** Le tableau doit être terminé par NULL.
 */
-char **ft_split(char const *s, char c)
+
+/* counts the number of occurences of c in s */
+static int	ft_count(const char *s, char c)
 {
-char **p = NULL;
-(void)s;
-(void)c;
-return (p);
+	int	i;
+	int	last;
+
+	i = 0;
+	last = 1;
+	while (*s)
+	{
+		if (*s != c && last)
+			i++;
+		last = (*s == c);
+		s++;
+	}
+	return (i);
+}
+
+/* add a new string to the array of strings */
+static int	add_array(const char *s, char c, char **arr)
+{
+	size_t	len;
+
+	len = 0;
+	while (s[len] && s[len] != c)
+		len++;
+	*arr = malloc(len + 1);
+	if (!arr)
+		return (0);
+	ft_memcpy(*arr, s, len);
+	(*arr)[len] = 0;
+	return (1);
+}
+
+char	**ft_split(char const *s, char c)
+{
+	size_t	i;
+	int		last;
+	char	**arr;
+
+	if (!s)
+		return (NULL);
+	i = ft_count(s, c);
+	arr = malloc(sizeof(char *) * (i + 1));
+	if (!arr)
+		return (NULL);
+	arr[i] = 0;
+	last = 1;
+	i = 0;
+	while (*s)
+	{
+		if (*s != c && last && !add_array(s, c, arr + i++))
+			return (NULL);
+		last = (*s == c);
+		s++;
+	}
+	return (arr);
 }

@@ -6,7 +6,7 @@
 /*   By: mbarberi <mbarberi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 14:01:04 by mbarberi          #+#    #+#             */
-/*   Updated: 2022/11/10 15:41:38 by mbarberi         ###   ########.fr       */
+/*   Updated: 2022/11/15 17:44:49 by mbarberi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ char	*ft_strchr(const char *s, int c)
 {
 	char	*p;
 
+	if (!s)
+		return (NULL);
 	p = (char *)s;
 	while (*p != (char)c)
 	{

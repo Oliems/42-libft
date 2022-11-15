@@ -6,7 +6,7 @@
 /*   By: mbarberi <mbarberi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 13:53:46 by mbarberi          #+#    #+#             */
-/*   Updated: 2022/11/14 14:54:49 by mbarberi         ###   ########.fr       */
+/*   Updated: 2022/11/15 17:43:45 by mbarberi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@ int	ft_atoi(const char *nptr)
 	x = 0;
 	sign = 1;
 	p = nptr;
+	if (!nptr)
+		return (0);
 	while (ft_isspace(*p))
 		p++;
 	if (*p == '-')

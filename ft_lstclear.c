@@ -6,7 +6,7 @@
 /*   By: mbarberi <mbarberi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 19:06:35 by mbarberi          #+#    #+#             */
-/*   Updated: 2022/11/15 14:47:40 by mbarberi         ###   ########.fr       */
+/*   Updated: 2022/11/15 16:56:05 by mbarberi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ void	ft_lstclear(t_list **lst, void (*del)(void *))
 	t_list	*tmp;
 	t_list	*head;
 
+	if (!lst || !del)
+		return ;
 	head = *lst;
 	while (head)
 	{

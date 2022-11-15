@@ -6,7 +6,7 @@
 /*   By: mbarberi <mbarberi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 13:59:57 by mbarberi          #+#    #+#             */
-/*   Updated: 2022/11/11 14:26:44 by mbarberi         ###   ########.fr       */
+/*   Updated: 2022/11/15 16:37:23 by mbarberi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,7 @@
 */
 void	ft_putendl_fd(char *s, int fd)
 {
-	char	*p;
-
-	p = s;
-	while (*p)
-		ft_putchar_fd(*p++, fd);
+	if (s && fd)
+		write(fd, s, ft_strlen(s));
 	ft_putchar_fd('\n', fd);
 }

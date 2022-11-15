@@ -6,7 +6,7 @@
 /*   By: mbarberi <mbarberi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 14:00:46 by mbarberi          #+#    #+#             */
-/*   Updated: 2022/11/11 14:24:07 by mbarberi         ###   ########.fr       */
+/*   Updated: 2022/11/15 16:35:45 by mbarberi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,6 @@
 */
 void	ft_putstr_fd(char *s, int fd)
 {
-	char	*p;
-
-	p = s;
-	while (*p)
-		ft_putchar_fd(*p++, fd);
+	if (s && fd)
+		write(fd, s, ft_strlen(s));
 }

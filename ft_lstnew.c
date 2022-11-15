@@ -6,7 +6,7 @@
 /*   By: mbarberi <mbarberi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 19:06:49 by mbarberi          #+#    #+#             */
-/*   Updated: 2022/11/15 11:16:07 by mbarberi         ###   ########.fr       */
+/*   Updated: 2022/11/15 14:49:20 by mbarberi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,13 @@
 ** ’content’ est initialisée à l’aide de la valeur du paramètre ’content’. La
 ** variable ’next’ est initialisée à NULL
 */
-t_list *ft_lstnew(void *content)
+t_list	*ft_lstnew(void *content)
 {
-	t_list *p;
+	t_list	*p;
+
 	p = malloc(sizeof(t_list));
+	if (!p)
+		return (NULL);
 	p->content = content;
 	p->next = NULL;
 	return (p);

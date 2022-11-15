@@ -6,7 +6,7 @@
 /*   By: mbarberi <mbarberi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 19:06:35 by mbarberi          #+#    #+#             */
-/*   Updated: 2022/11/15 13:58:10 by mbarberi         ###   ########.fr       */
+/*   Updated: 2022/11/15 14:47:40 by mbarberi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 ** les éléments qui suivent, à l’aide de ’del’ et de free(3). Enfin, le
 ** pointeur initial doit être mis à NULL.
 */
-void ft_lstclear(t_list **lst, void (*del)(void *))
+void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
 	t_list	*tmp;
 	t_list	*head;
@@ -27,7 +27,7 @@ void ft_lstclear(t_list **lst, void (*del)(void *))
 	{
 		tmp = head;
 		head = head->next;
-		(del)((void *) (tmp->content));
+		(del)((void *)(tmp->content));
 		tmp->content = NULL;
 		tmp->next = NULL;
 		free(tmp);

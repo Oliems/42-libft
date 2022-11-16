@@ -1,4 +1,23 @@
-SRCS =	ft_atoi.c \
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: mbarberi <mbarberi@student.42.fr>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2022/11/16 17:06:24 by mbarberi          #+#    #+#              #
+#    Updated: 2022/11/16 17:41:23 by mbarberi         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+NAME	:= libft.a
+CC		:= gcc
+CFLAGS	:= -Wall -Wextra -Werror
+RM		:= rm -f
+
+INCLUDES :=	libft.h
+
+SRCS :=	ft_atoi.c \
 		ft_isalpha.c \
 		ft_itoa.c \
 		ft_memcpy.c \
@@ -33,44 +52,36 @@ SRCS =	ft_atoi.c \
 		ft_striteri.c \
 		ft_substr.c
 
-OBJS = ${SRCS:.c=.o}
+SRCSBONUS := 	ft_lstnew.c \
+				ft_lstadd_front.c \
+				ft_lstsize.c \
+				ft_lstlast.c \
+				ft_lstadd_back.c \
+				ft_lstdelone.c \
+				ft_lstclear.c \
+				ft_lstiter.c \
+				ft_lstmap.c
 
-SRCSBONUS =	ft_lstnew.c \
-			ft_lstadd_front.c \
-			ft_lstsize.c \
-			ft_lstlast.c \
-			ft_lstadd_back.c \
-			ft_lstdelone.c \
-			ft_lstclear.c \
-			ft_lstiter.c \
-			ft_lstmap.c
+OBJS :=			$(SRCS:.c=.o)
+OBJSBONUS :=	$(SRCSBONUS:.c=.o)
 
-OBJSBONUS	= ${SRCSBONUS:.c=.o}
-
-
-NAME = libft.a
-CC = gcc
-CFLAGS = -Wall -Wextra -Werror
-RM = rm -f
-
-all: ${NAME}
+all: $(NAME)
 
 .c.o:
-			${CC} ${CFLAGS} -c $< -o ${<:.c=.o}
+			$(CC) $(CFLAGS) -c $< -o $(<:.c=.o)
 
-$(NAME): $(OBJS)
+$(NAME): $(OBJS) $(INCLUDES)
 			ar -rcs $(NAME) $(OBJS)
 
-
-bonus: ${OBJS} ${OBJSBONUS}
-			ar -rcs ${NAME} ${OBJS} ${OBJSBONUS}
+bonus: $(OBJS) $(OBJSBONUS) $(INCLUDES)
+			ar -rcs $(NAME) $(OBJS) $(OBJSBONUS)
 
 clean:
-			${RM} ${OBJS} ${OBJSBONUS}
+			$(RM) $(OBJS) $(OBJSBONUS)
 
 fclean: clean
-			${RM} ${NAME}
+			$(RM) $(NAME)
 
 re: fclean all
 
-.PHONY:		bonus all clean fclean re
+.PHONY:	all bonus clean fclean re

@@ -6,7 +6,7 @@
 /*   By: mbarberi <mbarberi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 14:01:36 by mbarberi          #+#    #+#             */
-/*   Updated: 2022/11/11 12:03:16 by mbarberi         ###   ########.fr       */
+/*   Updated: 2022/11/16 13:51:35 by mbarberi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 
 	if (!*little)
 		return ((char *)big);
-	if (!*big || !len)
+	if (!big && !len)
 		return (NULL);
 	head = big;
 	while (*head && len)

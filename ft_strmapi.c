@@ -6,7 +6,7 @@
 /*   By: mbarberi <mbarberi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 14:01:29 by mbarberi          #+#    #+#             */
-/*   Updated: 2022/11/14 11:22:11 by mbarberi         ###   ########.fr       */
+/*   Updated: 2022/11/16 14:03:46 by mbarberi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,11 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	size_t	i;
 	char	*p;
 
+	if (!s || !f)
+		return (NULL);
 	i = 0;
 	p = ft_strdup(s);
-	if (!s || !p)
+	if (!p)
 		return (NULL);
 	while (p[i])
 	{

@@ -6,7 +6,7 @@
 /*   By: mbarberi <mbarberi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 14:01:32 by mbarberi          #+#    #+#             */
-/*   Updated: 2022/11/16 14:11:58 by mbarberi         ###   ########.fr       */
+/*   Updated: 2022/11/16 15:07:32 by mbarberi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,17 +18,21 @@
 */
 int	ft_strncmp(const char *s1, const char *s2, size_t len)
 {
-	unsigned char	*p1;
-	unsigned char	*p2;
+	const char	*p1;
+	const char	*p2;
 
-	p1 = (unsigned char *)s1;
-	p2 = (unsigned char *)s2;
-	while (len-- && (*p1++ == *p2++) && *p1 && *p2)
-		;
-	if (*(p1 - 1) - *(p2 - 1) > 0)
-		return (1);
-	else if (*(p1 - 1) - *(p2 - 1) < 0)
-		return (-1);
-	else
+	if (!len)
 		return (0);
+	p1 = s1;
+	p2 = s2;
+	while (1)
+	{
+		if (*p1 != *p2++)
+			return (*(unsigned char *)p1 - *(unsigned char *)--p2);
+		if (!*p1++)
+			break ;
+		if (!--len)
+			break ;
+	}
+	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: mbarberi <mbarberi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 14:01:32 by mbarberi          #+#    #+#             */
-/*   Updated: 2022/11/16 12:56:13 by mbarberi         ###   ########.fr       */
+/*   Updated: 2022/11/16 14:11:58 by mbarberi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	ft_strncmp(const char *s1, const char *s2, size_t len)
 		;
 	if (*(p1 - 1) - *(p2 - 1) > 0)
 		return (1);
-	else if (*(p1 - 1) - *(p2 - 1)  < 0)
+	else if (*(p1 - 1) - *(p2 - 1) < 0)
 		return (-1);
 	else
 		return (0);

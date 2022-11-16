@@ -6,7 +6,7 @@
 /*   By: mbarberi <mbarberi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 19:06:39 by mbarberi          #+#    #+#             */
-/*   Updated: 2022/11/15 16:56:51 by mbarberi         ###   ########.fr       */
+/*   Updated: 2022/11/16 14:11:43 by mbarberi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 void	ft_lstdelone(t_list *lst, void (*del)(void*))
 {
 	if (!lst || !del)
-		return;
-	(del)((void *) (lst->content));
+		return ;
+	(del)((void *)(lst->content));
 	free(lst);
 }

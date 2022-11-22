@@ -6,7 +6,7 @@
 #    By: mbarberi <mbarberi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/16 17:06:24 by mbarberi          #+#    #+#              #
-#    Updated: 2022/11/16 17:41:23 by mbarberi         ###   ########.fr        #
+#    Updated: 2022/11/22 16:35:22 by mbarberi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,6 @@ NAME	:= libft.a
 CC		:= gcc
 CFLAGS	:= -Wall -Wextra -Werror
 RM		:= rm -f
-
 INCLUDES :=	libft.h
 
 SRCS :=	ft_atoi.c \
@@ -67,8 +66,8 @@ OBJSBONUS :=	$(SRCSBONUS:.c=.o)
 
 all: $(NAME)
 
-.c.o:
-			$(CC) $(CFLAGS) -c $< -o $(<:.c=.o)
+%.o: %.c Makefile libft.h
+	${CC} ${CFLAGS} -c $<
 
 $(NAME): $(OBJS) $(INCLUDES)
 			ar -rcs $(NAME) $(OBJS)

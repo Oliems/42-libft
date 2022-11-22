@@ -6,7 +6,7 @@
 /*   By: mbarberi <mbarberi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 14:01:36 by mbarberi          #+#    #+#             */
-/*   Updated: 2022/11/16 13:51:35 by mbarberi         ###   ########.fr       */
+/*   Updated: 2022/11/22 15:42:59 by mbarberi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,29 +19,22 @@
 */
 char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
-	const char	*b;
-	const char	*l;
-	const char	*head;
+	size_t	i;
+	size_t	j;
 
 	if (!*little)
-		return ((char *)big);
-	if (!big && !len)
-		return (NULL);
-	head = big;
-	while (*head && len)
+		return ((char *)(big));
+	i = 0;
+	while (i < len && big[i])
 	{
-		b = head;
-		l = little;
-		while (*b && *l && (*b == *l) && len)
+		j = 0;
+		while ((i + j) < len && little[j] == big[i + j])
 		{
-			b++;
-			l++;
-			len--;
+			j++;
+			if (!little[j])
+				return ((char *)(big + i));
 		}
-		if (*l == '\0')
-			return ((char *)(head));
-		head++;
-		len--;
+		i++;
 	}
 	return (NULL);
 }

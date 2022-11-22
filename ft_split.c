@@ -6,7 +6,7 @@
 /*   By: mbarberi <mbarberi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 14:00:58 by mbarberi          #+#    #+#             */
-/*   Updated: 2022/11/15 18:35:14 by mbarberi         ###   ########.fr       */
+/*   Updated: 2022/11/22 17:12:55 by mbarberi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,17 @@
 ** obtenu en séparant ’s’ à l’aide du caractère ’c’, utilisé comme délimiteur.
 ** Le tableau doit être terminé par NULL.
 */
+
+static void	*ft_free(char **list)
+{
+	int	i;
+
+	i = 0;
+	while (list[i])
+		free(list[i++]);
+	free(list);
+	return (NULL);
+}
 
 /* counts the number of occurences of c in s */
 static int	ft_count(const char *s, char c)
@@ -70,7 +81,7 @@ char	**ft_split(char const *s, char c)
 	while (*s)
 	{
 		if (*s != c && last && !add_array(s, c, arr + i++))
-			return (NULL);
+			return (ft_free(arr));
 		last = (*s == c);
 		s++;
 	}

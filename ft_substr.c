@@ -6,7 +6,7 @@
 /*   By: mbarberi <mbarberi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 14:01:46 by mbarberi          #+#    #+#             */
-/*   Updated: 2022/11/14 18:31:20 by mbarberi         ###   ########.fr       */
+/*   Updated: 2022/11/22 17:44:59 by mbarberi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,8 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	{
 		p[i] = s[start + i];
 		i++;
+		if (start + i >= ft_strlen(s) + 1)
+			break ;
 	}
 	p[i] = '\0';
 	return (p);

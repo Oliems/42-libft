@@ -6,7 +6,7 @@
 /*   By: mbarberi <mbarberi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 19:06:46 by mbarberi          #+#    #+#             */
-/*   Updated: 2022/11/15 14:50:55 by mbarberi         ###   ########.fr       */
+/*   Updated: 2022/11/22 14:08:18 by mbarberi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 		tmp = ft_lstnew((f)((void *)head->content));
 		if (!tmp)
 		{
+			(del)(head->content);
 			ft_lstclear(&new, del);
 			break ;
 		}

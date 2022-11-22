@@ -6,7 +6,7 @@
 /*   By: mbarberi <mbarberi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 13:53:46 by mbarberi          #+#    #+#             */
-/*   Updated: 2022/11/16 13:54:30 by mbarberi         ###   ########.fr       */
+/*   Updated: 2022/11/22 16:24:45 by mbarberi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,10 +38,6 @@ int	ft_atoi(const char *nptr)
 	if (*p == '-' || *p == '+')
 		p++;
 	while (ft_isdigit(*p))
-	{
-		x *= 10;
-		x += *p - '0';
-		p++;
-	}
+		x = x * 10 + *p++ - '0';
 	return (x * sign);
 }

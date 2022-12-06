@@ -6,7 +6,7 @@
 #    By: mbarberi <mbarberi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/16 17:06:24 by mbarberi          #+#    #+#              #
-#    Updated: 2022/11/22 16:35:22 by mbarberi         ###   ########.fr        #
+#    Updated: 2022/12/06 14:12:58 by mbarberi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -69,10 +69,10 @@ all: $(NAME)
 %.o: %.c Makefile libft.h
 	${CC} ${CFLAGS} -c $<
 
-$(NAME): $(OBJS) $(INCLUDES)
+$(NAME): $(OBJS)
 			ar -rcs $(NAME) $(OBJS)
 
-bonus: $(OBJS) $(OBJSBONUS) $(INCLUDES)
+bonus: $(OBJS) $(OBJSBONUS)
 			ar -rcs $(NAME) $(OBJS) $(OBJSBONUS)
 
 clean:

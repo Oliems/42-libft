@@ -6,10 +6,11 @@
 /*   By: mbarberi <mbarberi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 14:00:58 by mbarberi          #+#    #+#             */
-/*   Updated: 2022/12/07 16:42:46 by mbarberi         ###   ########.fr       */
+/*   Updated: 2022/12/07 20:35:09 by mbarberi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdio.h>
 #include "libft.h"
 
 /*
@@ -17,73 +18,127 @@
 ** obtenu en séparant 's' à l'aide du caractère 'c', utilisé comme délimiteur.
 ** Le tableau doit être terminé par NULL.
 */
-
-static void	*ft_free(char **list)
+size_t	ft_strlen(const char *s)
 {
-	int	i;
+	const char	*p;
+
+	p = s;
+	while (*p)
+		p++;
+	return ((size_t)(p - s));
+}
+
+void	ft_bzero(void *b, size_t len)
+{
+	void	*p;
+
+	p = b;
+	if (!len)
+		return ;
+	while (len--)
+		*(char *)p++ = '\0';
+}
+
+void	*ft_calloc(size_t number, size_t size)
+{
+	void	*p;
+
+	p = malloc(number * size);
+	if (!p)
+		return (NULL);
+	ft_bzero(p, number * size);
+	return (p);
+}
+
+void	*ft_memcpy(void *dst, const void *src, size_t len)
+{
+	char		*d;
+	char		*s;
+
+	if (!dst && !src)
+		return (NULL);
+	d = (char *)dst;
+	s = (char *)src;
+	while (len--)
+		*d++ = *s++;
+	return (dst);
+}
+
+char	*ft_strdup(const char *str)
+{
+	size_t	l;
+	char	*p;
+
+	l = ft_strlen(str);
+	p = malloc(l + 1);
+	if (!p)
+		return (NULL);
+	ft_memcpy(p, str, l);
+	p[l] = '\0';
+	return (p);
+}
+
+static int count_words(char const *s, char c)
+{
+	int i;
+	int n;
 
 	i = 0;
-	while (list[i])
-		free(list[i++]);
-	free(list);
-	return (NULL);
+	n = 0;
+	while (s[i])
+		if (s[i++] == c)
+			n++;
+	return (n + 1);
 }
-
-/* counts the number of occurences of c in s */
-static int	ft_count(const char *s, char c)
+char **ft_split(char const *s, char c)
 {
-	int	i;
-	int	last;
-
-	i = 0;
-	last = 1;
-	while (*s)
-	{
-		if (*s != c && last)
-			i++;
-		last = (*s == c);
-		s++;
-	}
-	return (i);
-}
-
-/* add a new string to the array of strings */
-static int	add_array(const char *s, char c, char **arr)
-{
-	size_t	len;
-
-	len = 0;
-	while (s[len] && s[len] != c)
-		len++;
-	*arr = malloc(len + 1);
-	if (!arr)
-		return (0);
-	ft_memcpy(*arr, s, len);
-	(*arr)[len] = 0;
-	return (1);
-}
-
-char	**ft_split(char const *s, char c)
-{
-	size_t	i;
-	int		last;
-	char	**arr;
+	char **p;
+	char *buf;
+	int i;
+	int j;
+	int k;
+	int wc;
 
 	if (!s)
 		return (NULL);
-	i = ft_count(s, c);
-	arr = malloc(sizeof(char *) * (i + 1));
-	if (!arr)
-		return (NULL);
-	arr[i] = 0;
-	last = 1;
+	if (!*s)
+		return (NULL); /* should return a char** with only a \0 */
+	wc = count_words(s, c);
+	p = malloc(wc + 1);
+	buf = ft_calloc(1, (ft_strlen(s) + 1));
 	i = 0;
-	while (*s)
+	j = 0;
+	k = 0;
+	while (i < wc)
 	{
-		if (*s != c && last && !add_array(s, c, arr + i++))
-			return (ft_free(arr));
-		last = (*s == c);
-		s++;
+		while (s[j] && (s[j] != c))
+			buf[k++] = s[j++];
+		buf[k] = '\0';
+		p[i] = ft_strdup(buf);
+		if (!p[i])
+			return (NULL); // free everything and return
+		ft_bzero(buf, k);
+		k = 0;
+		i++;
+		j++;
 	}
-	return (arr);
+	p[wc] = ft_strdup("\0");
+	free(buf);
+	return (p);
+}
+
+
+int main(void)
+{
+	char **p;
+	// n = 5, ns = 6, c = 30
+	p = ft_split("This is a very important test!", ' ');
+	while (*p)
+		printf("%s\n", *p++);
+/* 	// n = 0, ns = 1
+	ft_split("This", ' ');
+	// n = 1, ns = 2
+	ft_split("This is", ' ');
+	// n = 2, ns = 3 -> This, is, \0, \0
+	ft_split("This is ", ' '); */
 }

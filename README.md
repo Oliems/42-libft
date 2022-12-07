@@ -2,4 +2,8 @@
 Library of functions for 42 School
 
 # TODO
-- Handle overflow in ft_atoi().
+- Rewrite split()
+- Create new "archive" branch
+- Add new function
+  - Algo L
+  - abs

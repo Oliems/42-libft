@@ -6,7 +6,7 @@
 /*   By: mbarberi <mbarberi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 14:00:58 by mbarberi          #+#    #+#             */
-/*   Updated: 2022/11/22 17:12:55 by mbarberi         ###   ########.fr       */
+/*   Updated: 2022/12/07 16:42:46 by mbarberi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 /*
 ** Alloue (avec malloc(3)) et retourne un tableau de chaînes de caractères
-** obtenu en séparant ’s’ à l’aide du caractère ’c’, utilisé comme délimiteur.
+** obtenu en séparant 's' à l'aide du caractère 'c', utilisé comme délimiteur.
 ** Le tableau doit être terminé par NULL.
 */
 

@@ -6,7 +6,7 @@
 /*   By: mbarberi <mbarberi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 14:01:22 by mbarberi          #+#    #+#             */
-/*   Updated: 2022/11/14 15:12:22 by mbarberi         ###   ########.fr       */
+/*   Updated: 2022/12/07 17:04:15 by mbarberi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,10 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 {
 	int			l;
 	char		*d;
-	const char	*s;
+	char		*s;
 
 	d = dst;
-	s = src;
+	s = (char *)src;
 	l = ft_strlen(src);
 	if (!dstsize)
 		return (l);

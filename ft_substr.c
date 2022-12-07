@@ -6,7 +6,7 @@
 /*   By: mbarberi <mbarberi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 14:01:46 by mbarberi          #+#    #+#             */
-/*   Updated: 2022/11/22 17:49:34 by mbarberi         ###   ########.fr       */
+/*   Updated: 2022/12/07 16:42:46 by mbarberi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 /*
 ** Alloue (avec malloc(3)) et retourne une chaîne de caractères issue de la
-** chaîne ’s’. Cette nouvelle chaîne commence à l’index ’start’ et a pour taille
-** maximale ’len’.
+** chaîne 's'. Cette nouvelle chaîne commence à l'index 'start' et a pour taille
+** maximale 'len'.
 */
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {

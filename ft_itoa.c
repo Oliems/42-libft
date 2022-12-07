@@ -6,7 +6,7 @@
 /*   By: mbarberi <mbarberi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 13:56:32 by mbarberi          #+#    #+#             */
-/*   Updated: 2022/11/16 14:01:47 by mbarberi         ###   ########.fr       */
+/*   Updated: 2022/12/07 16:41:24 by mbarberi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ char	*ft_itoa(int n)
 	s[l] = '\0';
 	if (n < 0)
 		s[0] = '-';
-	else if (n == 0)
+	else if (!n)
 		s[0] = '0';
 	nb = ft_abs(n);
 	while (nb)

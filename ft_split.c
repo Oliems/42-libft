@@ -6,7 +6,7 @@
 /*   By: mbarberi <mbarberi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 14:00:58 by mbarberi          #+#    #+#             */
-/*   Updated: 2022/12/07 20:35:09 by mbarberi         ###   ########.fr       */
+/*   Updated: 2022/12/08 19:16:57 by mbarberi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,55 +90,70 @@ static int count_words(char const *s, char c)
 			n++;
 	return (n + 1);
 }
+
+static char *create_tab(char **s, int c)
+{
+	char *buf;
+	char *pb;
+	char *ps;
+
+	if (**s == c)
+		*s += 1;
+	ps = *s;
+	while (*ps && (*ps != c))
+		ps++;
+	buf = malloc((sizeof(char) * (ps - *s)) + 1);
+	if (!buf)
+		return (NULL);
+	pb = buf;
+	while (**s && (**s != c))
+	{
+		*pb++ = **s;
+		*s += 1;
+	}
+	*pb = '\0';
+	return (buf);
+}
+
 char **ft_split(char const *s, char c)
 {
-	char **p;
-	char *buf;
-	int i;
-	int j;
-	int k;
-	int wc;
+	int		wc;
+	char	*ps;
+	char	**t;
+	char	**pt;
 
 	if (!s)
 		return (NULL);
 	if (!*s)
 		return (NULL); /* should return a char** with only a \0 */
 	wc = count_words(s, c);
-	p = malloc(wc + 1);
-	buf = ft_calloc(1, (ft_strlen(s) + 1));
-	i = 0;
-	j = 0;
-	k = 0;
-	while (i < wc)
+	t = malloc(wc + 1);
+	if (!t)
+		return (NULL);
+	pt = t;
+	ps = (char *)s;
+	while (wc)
 	{
-		while (s[j] && (s[j] != c))
-			buf[k++] = s[j++];
-		buf[k] = '\0';
-		p[i] = ft_strdup(buf);
-		if (!p[i])
+		*pt = create_tab(&ps, c);
+		if (!*pt++)
 			return (NULL); // free everything and return
-		ft_bzero(buf, k);
-		k = 0;
-		i++;
-		j++;
+		wc--;
 	}
-	p[wc] = ft_strdup("\0");
-	free(buf);
-	return (p);
+	*pt = ft_strdup("\0");
+	return (t);
 }
 
-
+// break if c is in first place in the string
 int main(void)
 {
+	int i = 0;
 	char **p;
 	// n = 5, ns = 6, c = 30
 	p = ft_split("This is a very important test!", ' ');
-	while (*p)
-		printf("%s\n", *p++);
-/* 	// n = 0, ns = 1
-	ft_split("This", ' ');
-	// n = 1, ns = 2
-	ft_split("This is", ' ');
-	// n = 2, ns = 3 -> This, is, \0, \0
-	ft_split("This is ", ' '); */
+	while (p[i])
+	{
+		printf("%s\n", p[i]);
+		i++;
+	}
+	return (0);
 }

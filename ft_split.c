@@ -6,7 +6,7 @@
 /*   By: mbarberi <mbarberi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 14:00:58 by mbarberi          #+#    #+#             */
-/*   Updated: 2022/12/08 19:16:57 by mbarberi         ###   ########.fr       */
+/*   Updated: 2022/12/09 15:39:04 by mbarberi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,13 +30,10 @@ size_t	ft_strlen(const char *s)
 
 void	ft_bzero(void *b, size_t len)
 {
-	void	*p;
-
-	p = b;
-	if (!len)
-		return ;
-	while (len--)
-		*(char *)p++ = '\0';
+if (!len)
+	return ;
+while (len--)
+	*(char *)b++ = '\0';
 }
 
 void	*ft_calloc(size_t number, size_t size)
@@ -78,6 +75,20 @@ char	*ft_strdup(const char *str)
 	return (p);
 }
 
+size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
+{
+	int			l;
+
+	l = ft_strlen(src);
+	if (!dstsize)
+		return (l);
+	dstsize -= 1;
+	while (dstsize-- && *src)
+		*dst++ = *src++;
+	*dst = '\0';
+	return (l);
+}
+
 static int count_words(char const *s, char c)
 {
 	int i;
@@ -91,34 +102,31 @@ static int count_words(char const *s, char c)
 	return (n + 1);
 }
 
-static char *create_tab(char **s, int c)
+static char *create_tab(char const **s, int c)
 {
-	char *buf;
-	char *pb;
-	char *ps;
+	int		wl;
+	char	*pb;
+	char	*ps;
+	char	*buf;
 
 	if (**s == c)
 		*s += 1;
-	ps = *s;
+	ps = (char *)*s;
 	while (*ps && (*ps != c))
 		ps++;
-	buf = malloc((sizeof(char) * (ps - *s)) + 1);
+	wl = ps - *s;
+	buf = malloc(sizeof(char) * (wl + 1));
 	if (!buf)
 		return (NULL);
 	pb = buf;
-	while (**s && (**s != c))
-	{
-		*pb++ = **s;
-		*s += 1;
-	}
-	*pb = '\0';
+	ft_strlcpy(pb, *s, wl + 1);
+	*s += wl;
 	return (buf);
 }
 
 char **ft_split(char const *s, char c)
 {
 	int		wc;
-	char	*ps;
 	char	**t;
 	char	**pt;
 
@@ -131,10 +139,9 @@ char **ft_split(char const *s, char c)
 	if (!t)
 		return (NULL);
 	pt = t;
-	ps = (char *)s;
 	while (wc)
 	{
-		*pt = create_tab(&ps, c);
+		*pt = create_tab(&s, c);
 		if (!*pt++)
 			return (NULL); // free everything and return
 		wc--;
@@ -146,14 +153,18 @@ char **ft_split(char const *s, char c)
 // break if c is in first place in the string
 int main(void)
 {
-	int i = 0;
-	char **p;
-	// n = 5, ns = 6, c = 30
+	int		i;
+	char	**p;
+
+	i = 0;
+	// p = ft_split("This is a test", ' ');
 	p = ft_split("This is a very important test!", ' ');
+	// p = ft_split("This test is very long, it contains a lot of words. This is a very important test!", ' ');
+	while (p[i][0])
+		printf("%s\n", p[i++]);
+	i = 0;
 	while (p[i])
-	{
-		printf("%s\n", p[i]);
-		i++;
-	}
+		free(p[i++]);
+	free(p);
 	return (0);
 }

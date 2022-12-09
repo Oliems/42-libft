@@ -9,3 +9,4 @@ Library of functions for 42 School
   - Algo L
   - abs
   - isspace
+  - get_next_line()

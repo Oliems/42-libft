@@ -6,7 +6,7 @@
 /*   By: mbarberi <mbarberi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 14:01:25 by mbarberi          #+#    #+#             */
-/*   Updated: 2022/12/07 17:05:28 by mbarberi         ###   ########.fr       */
+/*   Updated: 2022/12/09 13:08:53 by mbarberi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 /* The strlen() function computes the length of the string s. */
 size_t	ft_strlen(const char *s)
 {
-	const char	*p;
+	char	*p;
 
-	p = s;
+	p = (char*)s;
 	while (*p)
 		p++;
 	return ((size_t)(p - s));

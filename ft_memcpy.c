@@ -6,7 +6,7 @@
 /*   By: mbarberi <mbarberi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 13:57:14 by mbarberi          #+#    #+#             */
-/*   Updated: 2022/12/07 16:55:04 by mbarberi         ###   ########.fr       */
+/*   Updated: 2022/12/09 13:50:29 by mbarberi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,12 @@
 */
 void	*ft_memcpy(void *dst, const void *src, size_t len)
 {
-	char		*d;
-	char		*s;
+	void *d;
 
+	d = dst;
 	if (!dst && !src)
 		return (NULL);
-	d = (char *)dst;
-	s = (char *)src;
 	while (len--)
-		*d++ = *s++;
-	return (dst);
+		*(unsigned char *)dst++ = *(unsigned char *)src++;
+	return (d);
 }

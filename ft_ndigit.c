@@ -1,41 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*   ft_ndigit.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbarberi <mbarberi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/07 13:56:32 by mbarberi          #+#    #+#             */
-/*   Updated: 2022/12/12 17:09:14 by mbarberi         ###   ########.fr       */
+/*   Created: 2022/12/12 17:08:51 by mbarberi          #+#    #+#             */
+/*   Updated: 2022/12/12 17:23:27 by mbarberi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-/*
-** Using malloc(3), allocate enough memory to store a string representing `n'
-** and return a pointer to the string.
-*/
-char	*ft_itoa(int n)
+/* compute the number of digits in a number, including the minus sign if n < 0 */
+int	ft_ndigit(int n)
 {
-	int		l;
-	size_t	nb;
-	char	*s;
+	int	l;
 
-	l = ft_ndigit(n);
-	s = malloc(l + 1);
-	if (!s)
-		return (NULL);
-	s[l] = '\0';
-	if (n < 0)
-		s[0] = '-';
-	else if (!n)
-		s[0] = '0';
-	nb = ft_abs(n);
-	while (nb)
+	l = 0;
+	if (n <= 0)
+		l += 1;
+	while (n)
 	{
-		s[--l] = nb % 10 + '0';
-		nb /= 10;
+		l++;
+		n /= 10;
 	}
-	return (s);
+	return (l);
 }

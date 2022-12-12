@@ -6,7 +6,7 @@
 /*   By: mbarberi <mbarberi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 14:01:56 by mbarberi          #+#    #+#             */
-/*   Updated: 2022/11/10 20:04:25 by mbarberi         ###   ########.fr       */
+/*   Updated: 2022/12/12 17:11:29 by mbarberi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 */
 int	ft_toupper(int c)
 {
-	if (c >= 'a' && c <= 'z')
+	if (ft_islower(c))
 		return (c - 32);
 	else
 		return (c);

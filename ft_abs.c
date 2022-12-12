@@ -1,41 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*   ft_abs.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbarberi <mbarberi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/07 13:56:32 by mbarberi          #+#    #+#             */
-/*   Updated: 2022/12/12 17:09:14 by mbarberi         ###   ########.fr       */
+/*   Created: 2022/11/07 13:53:30 by mbarberi          #+#    #+#             */
+/*   Updated: 2022/12/12 17:18:50 by mbarberi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/*
-** Using malloc(3), allocate enough memory to store a string representing `n'
-** and return a pointer to the string.
-*/
-char	*ft_itoa(int n)
+/* The abs() function computes the absolute value of the integer i. */
+size_t	ft_abs(int i)
 {
-	int		l;
-	size_t	nb;
-	char	*s;
-
-	l = ft_ndigit(n);
-	s = malloc(l + 1);
-	if (!s)
-		return (NULL);
-	s[l] = '\0';
-	if (n < 0)
-		s[0] = '-';
-	else if (!n)
-		s[0] = '0';
-	nb = ft_abs(n);
-	while (nb)
-	{
-		s[--l] = nb % 10 + '0';
-		nb /= 10;
-	}
-	return (s);
+	if (i < 0)
+		return (-((unsigned int)(i)));
+	else
+		return (+((unsigned int)(i)));
 }

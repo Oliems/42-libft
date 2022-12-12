@@ -6,15 +6,15 @@
 #    By: mbarberi <mbarberi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/16 17:06:24 by mbarberi          #+#    #+#              #
-#    Updated: 2022/12/06 14:12:58 by mbarberi         ###   ########.fr        #
+#    Updated: 2022/12/12 18:33:53 by mbarberi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	:= libft.a
-CC		:= gcc
-CFLAGS	:= -Wall -Wextra -Werror
-RM		:= rm -f
-INCLUDES :=	libft.h
+NAME		:= libft.a
+CC			:= gcc
+CFLAGS		:= -Wall -Wextra -Werror
+RM			:= rm -f
+INCLUDES	:= libft.h
 
 SRCS :=	ft_atoi.c \
 		ft_isalpha.c \
@@ -49,7 +49,15 @@ SRCS :=	ft_atoi.c \
 		ft_strlcat.c \
 		ft_strncmp.c \
 		ft_striteri.c \
-		ft_substr.c
+		ft_substr.c \
+		ft_abs.c \
+		ft_islower.c \
+		ft_isspace.c \
+		ft_isupper.c \
+		ft_ndigit.c \
+		ft_permute_char.c \
+		ft_permute_int.c \
+		get_next_line.c
 
 SRCSBONUS := 	ft_lstnew.c \
 				ft_lstadd_front.c \
@@ -61,8 +69,8 @@ SRCSBONUS := 	ft_lstnew.c \
 				ft_lstiter.c \
 				ft_lstmap.c
 
-OBJS :=			$(SRCS:.c=.o)
-OBJSBONUS :=	$(SRCSBONUS:.c=.o)
+OBJS		:= $(SRCS:.c=.o)
+OBJSBONUS	:= $(SRCSBONUS:.c=.o)
 
 all: $(NAME)
 

@@ -1,41 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*   ft_isspace.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbarberi <mbarberi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/07 13:56:32 by mbarberi          #+#    #+#             */
-/*   Updated: 2022/12/12 17:09:14 by mbarberi         ###   ########.fr       */
+/*   Created: 2022/11/07 13:55:16 by mbarberi          #+#    #+#             */
+/*   Updated: 2022/11/07 16:07:30 by mbarberi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 /*
-** Using malloc(3), allocate enough memory to store a string representing `n'
-** and return a pointer to the string.
+** The isspace(3) function tests for the white-space characters. For
+** any locale, this includes the following standard characters: '\t',
+** '\n', '\v', '\f', '\r', ' '.
 */
-char	*ft_itoa(int n)
+int	ft_isspace(int c)
 {
-	int		l;
-	size_t	nb;
-	char	*s;
-
-	l = ft_ndigit(n);
-	s = malloc(l + 1);
-	if (!s)
-		return (NULL);
-	s[l] = '\0';
-	if (n < 0)
-		s[0] = '-';
-	else if (!n)
-		s[0] = '0';
-	nb = ft_abs(n);
-	while (nb)
-	{
-		s[--l] = nb % 10 + '0';
-		nb /= 10;
-	}
-	return (s);
+	return (c == '\t' || c == '\n' || c == '\v'
+		|| c == '\f' || c == '\r' || c == ' ');
 }

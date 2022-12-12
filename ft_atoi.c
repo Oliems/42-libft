@@ -6,7 +6,7 @@
 /*   By: mbarberi <mbarberi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 13:53:46 by mbarberi          #+#    #+#             */
-/*   Updated: 2022/12/09 13:36:21 by mbarberi         ###   ########.fr       */
+/*   Updated: 2022/12/12 17:07:09 by mbarberi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,6 @@
 ** The atoi(3) function converts the initial portion of the string pointed to
 ** by nptr to integer representation.
 */
-static int	ft_isspace(int c)
-{
-	return (c == ' ' || c == '\t' || c == '\n' || c == '\v' || c == '\f'
-		|| c == '\r');
-}
-
 int	ft_atoi(const char *nptr)
 {
 	int			x;

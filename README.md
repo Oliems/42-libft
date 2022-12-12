@@ -2,11 +2,6 @@
 Library of functions for 42 School
 
 # TODO
-- Rewrite split()
-- Remove useless pointers in functions
-- Create new "archive" branch
-- Add new function
-  - Algo L
-  - abs
-  - isspace
-  - get_next_line()
+- Rewrite ft_split().
+- If possible, make a general swap() and permute() functions.
+- Fix crash in get_next_line.

@@ -6,7 +6,7 @@
 /*   By: mbarberi <mbarberi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 15:46:31 by mbarberi          #+#    #+#             */
-/*   Updated: 2022/11/16 14:13:38 by mbarberi         ###   ########.fr       */
+/*   Updated: 2022/12/12 19:17:07 by mbarberi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,9 +60,9 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 
 /* BONUS */
 typedef struct s_list	t_list;
-struct		s_list
+struct	s_list
 {
-	void	*content;
+	char	*content;
 	t_list	*next;
 };
 
@@ -75,4 +75,41 @@ void	ft_lstadd_front(t_list **lst, t_list *new);
 void	ft_lstdelone(t_list *lst, void (*del)(void*));
 void	ft_lstclear(t_list **lst, void (*del)(void*));
 void	ft_lstiter(t_list *lst, void (*f)(void *));
+
+/* PERSONAL */
+int		ft_isupper(int c);
+int		ft_islower(int c);
+int		ft_isspace(int c);
+int		ft_permute(void *b, int n);
+int		ft_permute_int(int *arr, int n);
+int		ft_ndigit(int n);
+size_t	ft_abs(int i);
+
+/* GNL */
+# ifndef EOF
+#  define EOF -1
+# endif
+
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 32
+# endif
+
+# ifndef CHUNK_SIZE
+#  define CHUNK_SIZE 16
+# endif
+
+typedef struct s_file	t_file;
+struct s_file
+{
+	int		i;
+	int		rv;
+	char	buf[BUFFER_SIZE];
+};
+/* rv -> return value for read() */
+
+int		ft_getchar(int fd, t_file *file);
+char	*get_next_line(int fd);
+char	*ft_tostr(t_list *list);
+t_list	*ft_tolist(t_list *list, t_file *file, int fd);
+
 #endif

@@ -6,7 +6,7 @@
 /*   By: mbarberi <mbarberi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 14:00:58 by mbarberi          #+#    #+#             */
-/*   Updated: 2022/12/09 15:39:04 by mbarberi         ###   ########.fr       */
+/*   Updated: 2022/12/12 17:10:17 by mbarberi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -151,7 +151,7 @@ char **ft_split(char const *s, char c)
 }
 
 // break if c is in first place in the string
-int main(void)
+/* int main(void)
 {
 	int		i;
 	char	**p;
@@ -167,4 +167,4 @@ int main(void)
 		free(p[i++]);
 	free(p);
 	return (0);
-}
+} */

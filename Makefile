@@ -6,7 +6,7 @@
 #    By: mbarberi <mbarberi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/16 17:06:24 by mbarberi          #+#    #+#              #
-#    Updated: 2022/12/12 18:33:53 by mbarberi         ###   ########.fr        #
+#    Updated: 2022/12/15 17:41:54 by mbarberi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -57,7 +57,9 @@ SRCS :=	ft_atoi.c \
 		ft_ndigit.c \
 		ft_permute_char.c \
 		ft_permute_int.c \
-		get_next_line.c
+		get_next_line.c \
+		ft_itoa_base.c \
+		ft_reverse.c
 
 SRCSBONUS := 	ft_lstnew.c \
 				ft_lstadd_front.c \

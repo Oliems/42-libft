@@ -6,12 +6,15 @@
 /*   By: mbarberi <mbarberi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 17:08:51 by mbarberi          #+#    #+#             */
-/*   Updated: 2022/12/12 17:23:27 by mbarberi         ###   ########.fr       */
+/*   Updated: 2022/12/15 17:40:42 by mbarberi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/* compute the number of digits in a number, including the minus sign if n < 0 */
-int	ft_ndigit(int n)
+/*
+** Compute the number of digits an integer will have in a given base, including
+** the minus sign if n < 0.
+*/
+int	ft_ndigit(int n, int baselen)
 {
 	int	l;
 
@@ -21,7 +24,7 @@ int	ft_ndigit(int n)
 	while (n)
 	{
 		l++;
-		n /= 10;
+		n /= baselen;
 	}
 	return (l);
 }

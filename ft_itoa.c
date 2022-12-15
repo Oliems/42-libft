@@ -6,7 +6,7 @@
 /*   By: mbarberi <mbarberi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 13:56:32 by mbarberi          #+#    #+#             */
-/*   Updated: 2022/12/12 17:09:14 by mbarberi         ###   ########.fr       */
+/*   Updated: 2022/12/15 17:39:34 by mbarberi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ char	*ft_itoa(int n)
 	size_t	nb;
 	char	*s;
 
-	l = ft_ndigit(n);
+	l = ft_ndigit(n, 10);
 	s = malloc(l + 1);
 	if (!s)
 		return (NULL);

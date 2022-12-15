@@ -6,17 +6,17 @@
 /*   By: mbarberi <mbarberi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 13:53:30 by mbarberi          #+#    #+#             */
-/*   Updated: 2022/12/12 17:18:50 by mbarberi         ###   ########.fr       */
+/*   Updated: 2022/12/15 17:50:37 by mbarberi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 /* The abs() function computes the absolute value of the integer i. */
-size_t	ft_abs(int i)
+uintmax_t ft_abs(intmax_t i)
 {
 	if (i < 0)
-		return (-((unsigned int)(i)));
+		return (-i);
 	else
-		return (+((unsigned int)(i)));
+		return (i);
 }

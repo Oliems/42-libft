@@ -6,7 +6,7 @@
 /*   By: mbarberi <mbarberi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 15:46:31 by mbarberi          #+#    #+#             */
-/*   Updated: 2022/12/15 18:00:11 by mbarberi         ###   ########.fr       */
+/*   Updated: 2023/01/03 15:47:02 by mbarberi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,11 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <stdint.h>
+
+/* DEFINES */
+# define OCTAL "01234567"
+# define HX_LO "0123456789abcdef"
+# define HX_HI "0123456789ABCDEF"
 
 /* STDLIB */
 int			ft_atoi(const char *nptr);

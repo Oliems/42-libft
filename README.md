@@ -5,6 +5,6 @@ Library of functions for 42 School
 - Rewrite ft_split().
 - If possible, make a general swap() and permute() functions.
 - Fix crash in get_next_line.
-- Merge oldprintf
+- Merge oldprintf into libft.
 - Merge ft_printf() into the libft.
 - Replace int with int64_t ?
